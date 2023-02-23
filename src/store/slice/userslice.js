@@ -15,6 +15,7 @@ const userSlice = createSlice({
       state.data = state.categoryData;
     },
     SearchByCategory(state, action) {
+      console.log("searchbycategory");
       state.category = action.payload;
       let dummy = [];
       dummy = Object.values(state.categoryData)

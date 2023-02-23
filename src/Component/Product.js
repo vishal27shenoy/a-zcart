@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "../CSS/product.css";
 import Navbar from "./Navbar";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,9 +21,10 @@ const Product = () => {
     dispatch(getdata());
     setarr(Object.values(data.data).flat(1));
   };
-  const setdatatoarray = (val) => {
-    if (val == "all") GetAllData();
-    else dispatch(SearchByCategory(val));
+  const setdatatoarray = (vall) => {
+    console.log("clicked");
+    if (vall == "all") GetAllData();
+    else dispatch(SearchByCategory(vall));
 
     setcheck(!check);
   };
@@ -34,12 +35,16 @@ const Product = () => {
   useEffect(() => {
     GetAllData();
   }, []);
-  useEffect(() => {
-    setarr(Object.values(data.data).flat(1));
-  }, [check]);
-  useEffect(() => {
-    setarr(Object.values(data.data).flat(1));
-  }, [data]);
+  useEffect(
+    () => {
+      setarr(Object.values(data.data).flat(1));
+    },
+    [check],
+    [data]
+  );
+  // useEffect(() => {
+  //   setarr(Object.values(data.data).flat(1));
+  // }, [data]);
   return (
     <div className="product_container">
       <div className="profuct_navbar">
@@ -51,7 +56,7 @@ const Product = () => {
             name="category"
             id="category"
             className="product_select"
-            onChange={(e) => setitemselection(e.target.value)}
+            onChange={(e) => setdatatoarray(e.target.value)}
           >
             <option value="" disabled selected>
               Choose Categories
@@ -59,41 +64,31 @@ const Product = () => {
             <option value="" disabled style={{ backgroundColor: "white" }}>
               {" "}
             </option>
-            <option value="phone" onClick={() => setdatatoarray("phone")}>
-              Phone
-            </option>
+            <option value="phone">Phone</option>
             <option
               value=""
               disabled
               style={{ backgroundColor: "white" }}
             ></option>
-            <option value="laptop" onClick={() => setdatatoarray("laptop")}>
-              Laptop
-            </option>
+            <option value="laptop">Laptop</option>
             <option
               value=""
               disabled
               style={{ backgroundColor: "white" }}
             ></option>
-            <option value="watch" onClick={() => setdatatoarray("watch")}>
-              Watch
-            </option>
+            <option value="watch">Watch</option>
             <option
               value=""
               disabled
               style={{ backgroundColor: "white" }}
             ></option>
-            <option value="TV" onClick={() => setdatatoarray("TV")}>
-              TV
-            </option>
+            <option value="TV">TV</option>
             <option
               value=""
               disabled
               style={{ backgroundColor: "white" }}
             ></option>
-            <option value="all" onClick={() => setdatatoarray("all")}>
-              All
-            </option>
+            <option value="all">All</option>
           </select>
         </div>
         <div className="product_sort">
@@ -154,4 +149,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default React.memo(Product);

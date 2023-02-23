@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "../CSS/card.css";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
@@ -52,4 +52,4 @@ const Card = ({ name, cost, imgsrc, rating, id }) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);
