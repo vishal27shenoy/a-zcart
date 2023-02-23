@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/a-zcart/static/css/main.4262ac56.css",
+    "main.js": "/a-zcart/static/js/main.ed787673.js",
+    "static/js/787.d3befce1.chunk.js": "/a-zcart/static/js/787.d3befce1.chunk.js",
+    "static/media/logo.svg": "/a-zcart/static/media/logo.1e7edb2576736fade1418b3f89efb58a.svg",
+    "index.html": "/a-zcart/index.html",
+    "main.4262ac56.css.map": "/a-zcart/static/css/main.4262ac56.css.map",
+    "main.ed787673.js.map": "/a-zcart/static/js/main.ed787673.js.map",
+    "787.d3befce1.chunk.js.map": "/a-zcart/static/js/787.d3befce1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4262ac56.css",
+    "static/js/main.ed787673.js"
+  ]
+}
